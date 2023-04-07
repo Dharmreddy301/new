@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>OpenGL ES 2.0 Programming Guide - Chapter_8/Simple_VertexShader</title>
+    <div>fps: <span id="fps"></span></div>
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
     <script type="text/javascript" src="esShader.js"></script>
     <script type="text/javascript" src="esShapes.js"></script>
@@ -189,7 +190,7 @@ function Init ( esContext )
 
 
 
-
+const fpsElem = document.querySelector("#fps");
 // Draw a triangle using the shader pair created in Init()
 //
 function Update ( esContext, deltaTime )
@@ -209,6 +210,9 @@ function Update ( esContext, deltaTime )
    if( userData.angle >= 360.0 )
        userData.angle -= 360.0;
    
+    const fps = 1 / deltaTime;    
+   // if(fpsElem){         // compute frames per second
+    fpsElem.textContent = fps.toFixed(1);
 
    // Compute the window aspect ratio
    aspect = esContext.width /  esContext.height;
