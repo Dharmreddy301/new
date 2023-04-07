@@ -109,18 +109,13 @@ function Init ( esContext )
        
       'uniform mat4 u_mvpMatrix;    \n\
       attribute vec4 a_position;   \n\
-      attribute vec2 a_texCoord;   \n\
-      varying vec2 v_texCoord;     \n\
       void main()                  \n\
       {                            \n\
        gl_Position = u_mvpMatrix * a_position; \n\
-         v_texCoord = a_texCoord;  \n\
       }                            \n';
 
    var fShaderStr =
       'precision mediump float;    \n\
-       varying vec2 v_texCoord;   \n\
-       uniform sampler2D s_texture;     \n\
        void main()                                         \n\
        {                                                   \n\
          gl_FragColor = vec4(1.0,0.0,0.0,1.0);        \n\
@@ -143,11 +138,7 @@ function Init ( esContext )
    var shape = esGenCube( 1.0, true, false, false, true );
    userData.numIndices = shape.numIndices;
    
-   //userData.textureId = gl.createTexture();
-   //userData.textureId.image = new Image();
-   //userData.textureId.image.onload = function () {
-     //  LoadTexture( userData.textureId );
-   //}
+  
    //userData.textureId = loadTexture("default_brick.png");
 
 
