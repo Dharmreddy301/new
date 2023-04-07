@@ -209,9 +209,9 @@ function Update ( esContext, deltaTime )
    userData.angle += ( deltaTime / 25.0 );
    if( userData.angle >= 360.0 )
        userData.angle -= 360.0;
+   float nt = deltaTime;
+    const fps = 1 / nt;    
    
-    const fps = 1 / deltaTime;    
-   // if(fpsElem){         // compute frames per second
     fpsElem.textContent = fps.toFixed(1);
 
    // Compute the window aspect ratio
